@@ -1,3 +1,15 @@
+# Creating constants for the max and min age to join and the price of the bus
+MIN_AGE = 5
+MAX_AGE = 17
+SHUTTLE_COST = 80
+
+# Creates empty variables for users info
+user_first_name = ""
+user_age = ""
+meal_choice = ""
+camp_choice = ""
+
+
 # Create list for each piece of info from the three camping activities
 camp_activitys_list = ["Cultural immersion", "Kayaking and pancakes", "Mountain biking"]
 camp_length_list = ["5", "3", "4"]
@@ -9,32 +21,39 @@ def printcamps():
     print('These are the activitys and their cost:')
     loop_count = 3
     for i in range(loop_count):
-        print(f'{camp_activitys_list[i]} which lasts {camp_length_list[i]}.The difficulty is {camp_difficulty_list[i]} and the cost is {camp_cost_list[1]}')
+        print(f'{i} {camp_activitys_list[i]} which lasts {camp_length_list[i]}.The difficulty is {camp_difficulty_list[i]} and the cost is {camp_cost_list[1]}')
 
-# Asks for users info and choices for camp, meal, and transport
+# Asks for users name and making sure it is letters not numbers or left blank
 def userinput():
     user_first_name = input('What is your name? ')
     while user_first_name == "" or user_first_name.isdigit() == True:
         user_first_name = input('Name can not be blank or number. Please re-enter your name: ') 
+
+# Asks for users age and making sure it is numbers not letters or left blank
     user_age = int(input('What is your age? '))
     if user_age < 5:
         print('You are to young to join camp.')
     elif user_age > 17:
         print('You are to old to join camp')
+# Asks user which camp they would like to attend, meal the want, and if they need transport
     else:
-        camp_choice = input('Enter the number for the camp you want to attend: ')
+        camp_choice = int(input('Enter the number for the camp you want to attend: '))
         meal_choice = input('What meal do you want (standard/vegeterian/vegan)? ')
-        transport_choice = input('Would you like to take the shuttle bus (extra $80)')
+        transport_choice = input('Would you like to take the shuttle bus (extra $80)? ')
+        if transport_choice == 'yes':
+            camp_total_cost = SHUTTLE_COST + camp_cost_list[camp_choice]
 
-        print(f'Hello {user_first_name}, you are {user_age}. You have chosen to attend {camp_activitys_list} which lasts {camp_length_list} and is {camp_difficulty_list} difficulty. Your meal choice is {meal_choice}')
-        camp_confirmation = input("Please confirm you'd like to attend the camp with the cost of ... (yes/no):")
+def campconfirmation():
+    print(f'Hello {user_first_name}, you are {user_age}. You have chosen to attend {camp_activitys_list[camp_choice]} which lasts {camp_length_list[camp_choice]} and is {camp_difficulty_list[camp_choice]} difficulty. Your meal choice is {meal_choice[camp_choice]}')
+    camp_confirmation = input("Please confirm you'd like to attend the camp with the cost of ... (yes/no): ")
 
-        if camp_confirmation == 'yes':
+    if camp_confirmation == 'yes':
             print('Enjoy the camp!')
-        elif camp_confirmation == 'no':
+    elif camp_confirmation == 'no':
             print('Camp application cancelled.')
-        else:
+    else:
             camp_confirmation = input('Please enter yes or no for you comfirmation: ')
 
 printcamps()
 userinput()
+campconfirmation()
