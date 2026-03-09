@@ -10,8 +10,14 @@ meal_choice = ""
 camp_choice = ""
 camp_total_cost = ""
 
+# Creates empty lists for the camp info
+camp_activitys_list = []
+camp_length_list = []
+camp_difficulty_list = []
+camp_cost_list = []
 
-# Create list for each piece of info from the three camping activities
+
+# Add items to the list for each piece of info from the three camping activities
 camp_activitys_list = ["Cultural immersion", "Kayaking and pancakes", "Mountain biking"]
 camp_length_list = ["5", "3", "4"]
 camp_difficulty_list = ["easy", "moderate", "difficult"]
@@ -38,7 +44,7 @@ def userinput():
         print('You are to old to join camp')
 # Asks user which camp they would like to attend and the meal they want
     else:
-        camp_choice = int(input('Enter the number for the camp you want to attend: '))
+        camp_choice = input('Enter the number for the camp you want to attend: ')
         meal_choice = input('What meal do you want (standard/vegeterian/vegan)? ')
 # Asks user if they would like transport and making sure it is a yes or no answer
         transport_choice = input('Would you like to take the shuttle bus (extra $80)? ')
@@ -49,9 +55,6 @@ def userinput():
             if transport_choice == 'no':
                 camp_total_cost = camp_cost_list[camp_choice]
     
-
-
-def campconfirmation():
     print(f'Hello {user_first_name}, you are {user_age}. You have chosen to attend {camp_activitys_list[camp_choice]} which lasts {camp_length_list[camp_choice]} and is {camp_difficulty_list[camp_choice]}. Your meal choice is {meal_choice[camp_choice]}')
     camp_confirmation = input(f"Please confirm you'd like to attend the camp with the cost of {camp_total_cost} (yes/no): ")
 
@@ -64,4 +67,3 @@ def campconfirmation():
 
 printcamps()
 userinput()
-campconfirmation()
