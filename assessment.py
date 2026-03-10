@@ -57,16 +57,18 @@ def userinput():
             camp_total_cost = SHUTTLE_COST + camp_cost_list[camp_choice]
             if transport_choice == 'no':
                 camp_total_cost = camp_cost_list[camp_choice]
-    
+def campconfirmation(): 
+# Prints users info and info about the camp the selected/meal choice. Asks them if they want to confirm their camp application with the total cost of it.
     print(f'Hello {user_first_name}, you are {user_age}. You have chosen to attend {camp_activitys_list[camp_choice]} which lasts {camp_length_list[camp_choice]} and is {camp_difficulty_list[camp_choice]}. Your meal choice is {meal_choice[camp_choice]}')
     camp_confirmation = input(f"Please confirm you'd like to attend the camp with the cost of {camp_total_cost} (yes/no): ")
-
+# Prints different message depending on if the user confirmed or denied the camp application
     if camp_confirmation == 'yes':
             print('Enjoy the camp!')
     elif camp_confirmation == 'no':
             print('Camp application cancelled.')
     else:
             camp_confirmation = input('Please enter yes or no for your comfirmation: ')
-
+# Runs the subroutines
 printcamps()
 userinput()
+campconfirmation()
