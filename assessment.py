@@ -22,7 +22,7 @@ camp_cost_list = []
 camp_activitys_list = ["Cultural immersion", "Kayaking and pancakes", "Mountain biking"]
 camp_length_list = ["5", "3", "4"]
 camp_difficulty_list = ["easy", "moderate", "difficult"]
-camp_cost_list = ["800", "400", "900"]
+camp_cost_list = [800, 400, 900]
 
 # Prints the three different camp options and info about them.
 def printcamps():
