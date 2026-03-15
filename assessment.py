@@ -33,7 +33,7 @@ def printcamps():
 
 # Asks for users name and making sure it is letters not numbers or left blank.
 def userinput():
-    global user_first_name, camp_choice, meal_choice, camp_total_cost
+    global user_first_name, user_age, camp_choice, meal_choice, camp_total_cost
     user_first_name = input('What is your name? ')
     while user_first_name == "" or user_first_name.isdigit() == True:
         user_first_name = input('Name can not be blank or number. Please re-enter your name: ') 
@@ -62,7 +62,7 @@ def userinput():
 
 def campconfirmation(): 
 # Prints users info and info about the camp the selected/meal choice. Asks them if they want to confirm their camp application with the total cost of it.
-    print(f'Hello {user_first_name}, you are {user_age}. You have chosen to attend {camp_activitys_list[camp_choice]} which lasts {camp_length_list[camp_choice]} and is {camp_difficulty_list[camp_choice]}. Your meal choice is {meal_choice}')
+    print(f'Hello {user_first_name}, you are {user_age}. You have chosen to attend {camp_activitys_list[camp_choice]} which lasts {camp_length_list[camp_choice]} days and is {camp_difficulty_list[camp_choice]}. Your meal choice is {meal_choice}.')
     camp_confirmation = input(f"Please confirm you'd like to attend the camp with the cost of ${camp_total_cost} (yes/no): ")
 # Prints different message depending on if the user confirmed or denied the camp application.
     if camp_confirmation == 'yes':
