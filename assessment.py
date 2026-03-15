@@ -33,22 +33,26 @@ def printcamps():
 
 # Asks for users name and making sure it is letters not numbers or left blank.
 def userinput():
+    global user_first_name, camp_choice, meal_choice, camp_total_cost
     user_first_name = input('What is your name? ')
     while user_first_name == "" or user_first_name.isdigit() == True:
         user_first_name = input('Name can not be blank or number. Please re-enter your name: ') 
+
 # Asks for users age and makes sure they are between the min and max age.
     user_age = int(input('What is your age? '))
     if user_age < MIN_AGE:
         print('You are to young to join camp.')
     elif user_age > MAX_AGE:
         print('You are to old to join camp')
+
 # Asks user which camp they would like to attend and the meal they want.
     else:
         camp_choice = int(input('Enter the number for the camp you want to attend: '))
         meal_choice = input('What meal do you want (standard/vegeterian/vegan)? ')
+
 # Asks user if they would like transport and making sure it is a yes or no answer.
         transport_choice = input('Would you like to take the shuttle bus (extra $80)? ')
-        if transport_choice == "" or transport_choice.isdigit == True:
+        if transport_choice == "" or transport_choice.isdigit() == True:
             transport_choice = input('Answer can not be blank or number, please enter a yes or no answer: ')
         if transport_choice == 'yes':
             camp_total_cost = SHUTTLE_COST + int(camp_cost_list[camp_choice])
