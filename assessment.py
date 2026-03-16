@@ -55,9 +55,9 @@ def userinput():
         if transport_choice == "" or transport_choice.isdigit() == True:
             transport_choice = input('Answer can not be blank or number, please enter a yes or no answer: ')
         if transport_choice == 'yes':
-            camp_total_cost = SHUTTLE_COST + int(camp_cost_list[camp_choice])
-            if transport_choice == 'no':
-                camp_total_cost = int(camp_cost_list[camp_choice])
+            camp_total_cost = SHUTTLE_COST + (camp_cost_list[camp_choice])
+        elif transport_choice == 'no':
+                camp_total_cost = (camp_cost_list[camp_choice])
 
 
 def campconfirmation(): 
