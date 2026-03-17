@@ -47,7 +47,7 @@ def userinput():
         print('You are to young to join camp.')
     elif user_age > MAX_AGE:
         print('You are to old to join camp')
-    elif user_age <= CAMP_LEADER_AGE or user_age <= MAX_AGE:
+    elif user_age <= CAMP_LEADER_AGE:
         camp_leader = input('Since you are fifteen or older, you are eligable to become a camp leader. Would you like to be one? (yes/no): ')
         if camp_leader == 'yes':
             camp_leader = 'as a camp leader'
@@ -58,7 +58,7 @@ def userinput():
         meal_choice = input('What meal do you want (standard/vegeterian/vegan)? ')
 
 # Asks user if they would like transport and making sure it is a yes or no answer.
-        transport_choice = input('Would you like to take the shuttle bus (extra $80)? ')
+        transport_choice = input('Would you like to take the shuttle bus (extra $80, yes/no)? ')
         if transport_choice == "" or transport_choice.isdigit() == True:
             transport_choice = input('Answer can not be blank or number, please enter a yes or no answer: ')
         if transport_choice == 'yes':
@@ -67,10 +67,12 @@ def userinput():
                 camp_total_cost = (camp_cost_list[camp_choice])
 
 
-def campconfirmation(): 
+def campconfirmation():
+
 # Prints users info and info about the camp the selected/meal choice. Asks them if they want to confirm their camp application with the total cost of it.
     print(f'Hello {user_first_name}, you are {user_age}. You have chosen to attend {camp_activitys_list[camp_choice]} {camp_leader} which lasts {camp_length_list[camp_choice]} days and is {camp_difficulty_list[camp_choice]}. Your meal choice is {meal_choice}.')
     camp_confirmation = input(f"Please confirm you'd like to attend the camp with the cost of ${camp_total_cost} (yes/no): ")
+
 # Prints different message depending on if the user confirmed or denied the camp application.
     if camp_confirmation == 'yes':
             print('Enjoy the camp!')
@@ -78,6 +80,7 @@ def campconfirmation():
             print('Camp application cancelled.')
     else:
             camp_confirmation = input('Please enter yes or no for your comfirmation: ')
+            
 # Runs the subroutines.
 printcamps()
 userinput()
