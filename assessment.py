@@ -11,6 +11,7 @@ meal_choice = ""
 camp_choice = ""
 camp_total_cost = ""
 camp_confirmation = ""
+camp_leader = ""
 
 # Creates empty lists for the camp info.
 camp_activitys_list = []
@@ -46,8 +47,8 @@ def userinput():
         print('You are to young to join camp.')
     elif user_age > MAX_AGE:
         print('You are to old to join camp')
-    elif user_age <= CAMP_LEADER_AGE:
-        camp_leader = input('Since you are fifteen or older, you are eligable to become a camp leader. Would you like to be one? (yes/no)')
+    elif user_age <= CAMP_LEADER_AGE or user_age <= MAX_AGE:
+        camp_leader = input('Since you are fifteen or older, you are eligable to become a camp leader. Would you like to be one? (yes/no): ')
         if camp_leader == 'yes':
             camp_leader = 'as a camp leader'
 
