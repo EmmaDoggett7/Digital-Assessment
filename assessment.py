@@ -47,8 +47,10 @@ def userinput():
         print('You are to young to join camp.')
     elif user_age > MAX_AGE:
         print('You are to old to join camp')
-    elif user_age <= CAMP_LEADER_AGE:
+    elif user_age >= CAMP_LEADER_AGE:
         camp_leader = input('Since you are fifteen or older, you are eligable to become a camp leader. Would you like to be one? (yes/no): ')
+        while camp_leader != 'yes' or camp_leader != 'no':
+            camp_leader = input('Please enter yes or no.')
         if camp_leader == 'yes':
             camp_leader = 'as a camp leader'
 
@@ -80,7 +82,7 @@ def campconfirmation():
             print('Camp application cancelled.')
     else:
             camp_confirmation = input('Please enter yes or no for your comfirmation: ')
-            
+
 # Runs the subroutines.
 printcamps()
 userinput()
