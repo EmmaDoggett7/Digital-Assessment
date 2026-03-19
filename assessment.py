@@ -39,21 +39,27 @@ def userinput():
     global user_first_name, user_age, camp_choice, meal_choice, camp_total_cost, camp_leader
     user_first_name = input('What is your name? ')
     while user_first_name == "" or user_first_name.isdigit() == True:
-        user_first_name = input('Name can not be blank or number. Please re-enter your name: ') 
+        user_first_name = input('Name can not be blank or number. Please re-enter your name in letters: ') 
 
 # Asks for users age and makes sure they are between the min and max age.
     user_age = int(input('What is your age? '))
+    while user_age.isdigit() == False or user_age == '':
+        user_age = int(input('Age can not be blank or letter. Please re-enter your age in numbers: '))
     if user_age < MIN_AGE:
         print('You are to young to join camp.')
     elif user_age > MAX_AGE:
         print('You are to old to join camp')
     elif user_age >= CAMP_LEADER_AGE:
         camp_leader = input('Since you are fifteen or older, you are eligable to become a camp leader. Would you like to be one? (yes/no): ')
+        while camp_leader.isdigit() == True or camp_leader == "" or camp_leader != 'yes' or != 'no':
+            camp_leader = input('Please enter yes or no')
         if camp_leader == 'yes':
             camp_leader = 'as a camp leader'
 
 # Asks user which camp they would like to attend and the meal they want.
         camp_choice = int(input('Enter the number for the camp you want to attend: '))
+        while camp_choice.isdigit() == False or camp_choice == '':
+            camp_choice = int(input('Camp number can not be blank or letter. Please enter the number beside the camp you would like to attend: '))
         meal_choice = input('What meal do you want (standard/vegeterian/vegan)? ')
 
 # Asks user if they would like transport and making sure it is a yes or no answer.
