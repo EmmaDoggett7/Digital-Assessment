@@ -53,7 +53,6 @@ def userinput():
             camp_leader = 'as a camp leader'
 
 # Asks user which camp they would like to attend and the meal they want.
-    
         camp_choice = int(input('Enter the number for the camp you want to attend: '))
         meal_choice = input('What meal do you want (standard/vegeterian/vegan)? ')
 
@@ -65,6 +64,19 @@ def userinput():
             camp_total_cost = SHUTTLE_COST + (camp_cost_list[camp_choice])
         elif transport_choice == 'no':
                 camp_total_cost = (camp_cost_list[camp_choice])
+# Asks user same information if they said no to being a camp leader or are to young to be a camp leader.
+    else:
+        camp_choice = int(input('Enter the number for the camp you want to attend: '))
+        meal_choice = input('What meal do you want (standard/vegeterian/vegan)? ')
+
+# Asks user if they would like transport and making sure it is a yes or no answer.
+        transport_choice = input('Would you like to take the shuttle bus (extra $80, yes/no)? ')
+    if transport_choice == "" or transport_choice.isdigit() == True:
+            transport_choice = input('Answer can not be blank or number, please enter a yes or no answer: ')
+    if transport_choice == 'yes':
+            camp_total_cost = SHUTTLE_COST + (camp_cost_list[camp_choice])
+    elif transport_choice == 'no':
+                camp_total_cost = (camp_cost_list[camp_choice]) 
 
 
 def campconfirmation():
