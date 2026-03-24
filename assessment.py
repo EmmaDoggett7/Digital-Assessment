@@ -54,8 +54,6 @@ def userinput():
 
 # Asks for users age and makes sure they are between the min and max age.
     user_age = int(input('What is your age? '))
-    while user_age.is_integer() == False:
-        user_age = int(input('Age can not be blank or letter. Please re-enter your age in numbers: '))
     if user_age < MIN_AGE:
         print('You are to young to join camp.')
     elif user_age > MAX_AGE:
@@ -65,12 +63,14 @@ def userinput():
         while camp_leader not in camp_leader_answers:
             camp_leader = input('Please enter yes or no:')
         if camp_leader == 'yes':
-            camp_leader = ' as a camp leader '
+            camp_leader = ' as a camp leader,'
+        elif camp_leader == 'no':
+            camp_leader = ''
 
 # Asks user which camp they would like to attend and the meal they want.
         camp_choice = int(input('Enter the number for the camp you want to attend: '))
-        while camp_choice.is_integer() == False:
-            camp_choice = int(input('Camp number can not be a letter. Please enter the number beside the camp you would like to attend: '))
+        while camp_choice not in range(3):
+            camp_choice = int(input('Please enter the correct number for the camp you want to attend (0/1/2): '))
         meal_choice = input('What meal do you want (standard/vegeterian/vegan)? ')
         while meal_choice not in meal_choice_list:
             meal_choice = input('We dont offer that meal. Please select from the avalible options (standard/vegeterian/vegan): ')
@@ -89,6 +89,8 @@ def userinput():
 # Asks user which camp they would like to attend and the meal they want.
     else:
         camp_choice = int(input('Enter the number for the camp you want to attend: '))
+        while camp_choice not in range(3):
+            camp_choice = int(input('Please enter the correct number for the camp you want to attend (0/1/2): '))
         meal_choice = input('What meal do you want (standard/vegeterian/vegan)? ')
         while meal_choice not in meal_choice_list:
             meal_choice = input('We dont offer that meal. Please select from the avalible options (standard/vegeterian/vegan): ')
@@ -99,9 +101,9 @@ def userinput():
         while transport_choice not in transport_answer:
             transport_choice = input('Answer can not be blank or number, please enter a yes or no answer: ')
     if transport_choice == 'yes':
-            camp_total_cost = SHUTTLE_COST + (camp_cost_list[camp_choice])
+        camp_total_cost = SHUTTLE_COST + (camp_cost_list[camp_choice])
     elif transport_choice == 'no':
-                camp_total_cost = (camp_cost_list[camp_choice]) 
+            camp_total_cost = (camp_cost_list[camp_choice]) 
 
 
 def campconfirmation():
