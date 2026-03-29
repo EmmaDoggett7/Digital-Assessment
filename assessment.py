@@ -65,12 +65,12 @@ def userinput():
         print('You are to old to join camp')
     elif user_age >= CAMP_LEADER_AGE:
         camp_leader = input('Since you are fifteen or older, you are eligable to become a camp leader. Would you like to be one? (yes/no): ').lower()
-        while camp_leader not in camp_leader_answers:
-            camp_leader = input('Please enter yes or no:').lower()
         if camp_leader == 'yes':
             camp_leader = ' as a camp leader,'
         elif camp_leader == 'no':
             camp_leader = ''
+        while camp_leader not in camp_leader_answers:
+            camp_leader = input('Please enter yes or no:').lower()
 
 # Asks user which camp they would like to attend and the meal they want, while checking they are entering a correct camp number and avalible meal choice.
         while True:
