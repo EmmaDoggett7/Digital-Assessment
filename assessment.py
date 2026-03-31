@@ -49,8 +49,8 @@ def printcamps():
 def userinput():
     global user_first_name, user_age, camp_choice, meal_choice, camp_total_cost, camp_leader
     user_first_name = input('What is your name? ')
-    while user_first_name == "" or user_first_name.isdigit() == True:
-        user_first_name = input('Name can not be blank or number. Please re-enter your name in letters: ') 
+    while user_first_name == "" or user_first_name.isalpha() == False:
+        user_first_name = input('Name can not be blank or number. Please re-enter your name in letters: ')
 
 # Asks for users age and makes sure they are between the min and max age. Asks if user wants to be a camp leader if eligable.
     while True:
@@ -66,7 +66,7 @@ def userinput():
     elif user_age >= CAMP_LEADER_AGE:
         camp_leader = input('Since you are fifteen or older, you are eligable to become a camp leader. Would you like to be one? (yes/no): ').lower()
         while camp_leader not in camp_leader_answers:
-            camp_leader = input('Please enter yes or no:').lower()
+            camp_leader = input('Please enter yes or no: ').lower()
         if camp_leader == 'yes':
             camp_leader = ' as a camp leader,'
         elif camp_leader == 'no':
